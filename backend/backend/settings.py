@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',  # for RESTful API
     'rest_framework.authtoken',  # default token auth of DRF
+    'vault.apps.VaultConfig',
 ]
 
 MIDDLEWARE = [
