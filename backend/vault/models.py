@@ -15,6 +15,7 @@ from django.db import models
 
 
 class Subject(models.Model):
+    """Base class for all subjects"""
     title = models.CharField(max_length=256, verbose_name='条目标题')
     cover = models.ImageField(upload_to='images/covers/', verbose_name='封面图', blank=True, null=True)
     is_sensitive = models.BooleanField(default=False, verbose_name='是否敏感')
@@ -24,6 +25,24 @@ class Subject(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class RateableSubject(models.Model):
+    """Base class for subjects that can be rated"""
+    imdb_link = models.URLField(max_length=256, verbose_name='IMDb 链接', blank=True, null=True)
+    imdb_rating = models.FloatField(verbose_name='IMDb 评分', blank=True, null=True)
+    imdb_rating_count = models.CommaSeparatedIntegerField(verbose_name='IMDb 评分人数', blank=True, null=True)
+
+    douban_link = models.URLField(max_length=256, verbose_name='豆瓣链接', blank=True, null=True)
+    douban_rating = models.FloatField(verbose_name='豆瓣评分', blank=True, null=True)
+    douban_rating_count = models.CommaSeparatedIntegerField(verbose_name='豆瓣评分人数', blank=True, null=True)
+
+    bangumi_link = models.URLField(max_length=256, verbose_name='Bangumi 链接', blank=True, null=True)
+    bangumi_rating = models.FloatField(verbose_name='Bangumi 评分', blank=True, null=True)
+    bangumi_rating_count = models.CommaSeparatedIntegerField(verbose_name='Bangumi 评分人数', blank=True, null=True)
+
+    class Meta:
+        abstract = True
 
 
 class Person(Subject):  # IMPLEMENT
@@ -88,7 +107,7 @@ class TVGenre(models.Model):
         return self.name
 
 
-class TVSubject(Subject):
+class TVSubject(Subject, RateableSubject):
     directors = models.ManyToManyField(Person, verbose_name='导演', blank=True, null=True)
     screen_writers = models.ManyToManyField(Person, verbose_name='编剧', blank=True, null=True)
     actors = models.ManyToManyField(Person, verbose_name='主演', blank=True, null=True)
@@ -102,10 +121,6 @@ class TVSubject(Subject):
     duration_per_episode = models.PositiveIntegerField(verbose_name='单集片长', default=1, help_text="单位：分钟")
     alternative_names = models.CharField(max_length=256, verbose_name='又名', blank=True,
                                          null=True)  # separate by slash
-    imdb_link = models.URLField(max_length=256, verbose_name='IMDb 链接', blank=True, null=True)
-    douban_link = models.URLField(max_length=256, verbose_name='豆瓣链接', blank=True, null=True)
-    imdb_rating = models.FloatField(verbose_name='IMDb 评分', blank=True, null=True)
-    douban_rating = models.FloatField(verbose_name='豆瓣评分', blank=True, null=True)
 
     class Meta:
         verbose_name = "电视剧"
