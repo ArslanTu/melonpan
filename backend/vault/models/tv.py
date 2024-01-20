@@ -30,7 +30,7 @@ class TVSubject(Subject, RateableSubject):
     screen_writers = models.ManyToManyField(Person, verbose_name='编剧', blank=True, null=True)
     actors = models.ManyToManyField(Person, verbose_name='主演', blank=True, null=True)
     genres = models.ManyToManyField(TVGenre, verbose_name='类型', blank=False, null=False)
-    official_site = models.URLField(max_length=256, verbose_name='官方网站', blank=True, null=False)
+    official_site = models.URLField(max_length=255, verbose_name='官方网站', blank=True, null=False)
     country = models.ManyToManyField(Area, verbose_name='制片国家/地区', blank=False, null=False)
     language = models.ManyToManyField(Language, verbose_name='语言', blank=False, null=False)
     airing_date = models.DateField(verbose_name='首播时间', blank=True, null=True)
@@ -38,7 +38,7 @@ class TVSubject(Subject, RateableSubject):
     number_of_seasons = models.PositiveIntegerField(verbose_name='季数', default=1, blank=False, null=False)
     duration_per_episode = models.PositiveIntegerField(verbose_name='单集片长', blank=True, null=True,
                                                        help_text="单位：分钟")
-    alternative_names = models.CharField(max_length=256, verbose_name='又名', blank=True,
+    alternative_names = models.CharField(max_length=255, verbose_name='又名', blank=True,
                                          null=False)  # separated by slash
 
     class Meta:
