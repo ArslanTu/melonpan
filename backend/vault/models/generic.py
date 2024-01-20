@@ -31,11 +31,11 @@ class Language(models.Model):
         return self.name
 
 
-class Press(models.Model):
-    name = models.CharField(unique=True, max_length=32, verbose_name='出版社名')
+class Organization(models.Model):
+    name = models.CharField(unique=True, max_length=32, verbose_name='组织名')
 
     class Meta:
-        verbose_name = '出版社'
+        verbose_name = '组织'
 
     def __str__(self):
         return self.name

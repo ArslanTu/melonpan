@@ -9,7 +9,7 @@
 """
 from .abstract import Subject, RateableSubject
 from .book import BookSubject
-from .generic import Country, Language, Press
+from .generic import Country, Language, Organization
 from .movie import MovieGenre, MovieSubject
 from .person import Person
 from .tv import TVGenre, TVSubject

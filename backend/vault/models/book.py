@@ -11,13 +11,13 @@
 from django.db import models
 
 from .abstract import Subject, RateableSubject
-from .generic import Press
+from .generic import Organization
 from .person import Person
 
 
 class BookSubject(Subject, RateableSubject):
     authors = models.ManyToManyField(Person, verbose_name='作者', blank=False, null=False)
-    press = models.ForeignKey(Press, on_delete=models.SET_NULL, verbose_name='出版社', blank=True, null=True)
+    press = models.ForeignKey(Organization, on_delete=models.SET_NULL, verbose_name='出版社', blank=True, null=True)
     original_title = models.CharField(max_length=255, verbose_name='原作名', blank=True, null=False)
     translators = models.ManyToManyField(Person, verbose_name='译者', blank=True, null=True)
     publish_date = models.DateField(verbose_name='出版年', blank=True, null=True)
