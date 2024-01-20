@@ -34,10 +34,10 @@ class TVSubject(Subject, RateableSubject):
     countries = models.ManyToManyField(Country, verbose_name='制片国家/地区', blank=False, null=False)
     languages = models.ManyToManyField(Language, verbose_name='语言', blank=False, null=False)
     airing_date = models.DateField(verbose_name='首播时间', blank=True, null=True)
-    number_of_episodes = models.PositiveIntegerField(verbose_name='集数', default=1, blank=False, null=False)
-    number_of_seasons = models.PositiveIntegerField(verbose_name='季数', default=1, blank=False, null=False)
-    duration_per_episode = models.PositiveIntegerField(verbose_name='单集片长', blank=True, null=True,
-                                                       help_text="单位：分钟")
+    number_of_episodes = models.PositiveSmallIntegerField(verbose_name='集数', default=1, blank=False, null=False)
+    number_of_seasons = models.PositiveSmallIntegerField(verbose_name='季数', default=1, blank=False, null=False)
+    duration_per_episode = models.PositiveSmallIntegerField(verbose_name='单集片长', blank=True, null=True,
+                                                            help_text="单位：分钟")
     alternative_names = models.CharField(max_length=255, verbose_name='又名', blank=True,
                                          null=False)  # separated by slash
 
