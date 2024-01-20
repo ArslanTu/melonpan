@@ -11,8 +11,7 @@
 from django.db import models
 
 from .abstract import Subject, RateableSubject
-from .generic import Country, Language
-from .person import Person
+from .generic import Country, Language, Person
 
 
 class TVGenre(models.Model):

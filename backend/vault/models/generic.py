@@ -10,6 +10,12 @@
 
 from django.db import models
 
+from vault.models import Subject
+
+
+class Person(Subject):  # IMPLEMENT
+    pass
+
 
 class Country(models.Model):
     name = models.CharField(unique=True, max_length=32, verbose_name='国家/地区名')
@@ -39,3 +45,7 @@ class Organization(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Character(Subject):
+    pass

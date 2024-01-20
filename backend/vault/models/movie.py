@@ -10,9 +10,8 @@
 
 from django.db import models
 
-from . import Person
 from .abstract import Subject, RateableSubject
-from .generic import Country, Language
+from .generic import Country, Language, Person
 
 
 class MovieGenre(models.Model):
