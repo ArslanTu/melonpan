@@ -11,7 +11,8 @@
 from django.db import models
 
 from .abstract import Subject, RateableSubject
-from .generic import Organization, Person
+from .organization import Organization
+from .person import Person
 
 
 class BookSubject(Subject, RateableSubject):
