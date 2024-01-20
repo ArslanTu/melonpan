@@ -14,6 +14,6 @@ from .book import BookSubject
 from .country import Country
 from .language import Language
 from .movie import MovieGenre, MovieSubject
-from .organization import Organization
-from .person import Person
+from .organization import OrganizationSubject
+from .person import PersonSubject
 from .tv import TVGenre, TVSubject

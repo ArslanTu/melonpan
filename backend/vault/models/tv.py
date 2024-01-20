@@ -13,7 +13,7 @@ from django.db import models
 from .abstract import Subject, RateableSubject
 from .country import Country
 from .language import Language
-from .person import Person
+from .person import PersonSubject
 
 
 class TVGenre(models.Model):
@@ -27,9 +27,11 @@ class TVGenre(models.Model):
 
 
 class TVSubject(Subject, RateableSubject):
-    directors = models.ManyToManyField(Person, related_name='direct_tv_subject_set', verbose_name='导演', blank=True)
-    screenwriters = models.ManyToManyField(Person, related_name='write_tv_subject_set', verbose_name='编剧', blank=True)
-    actors = models.ManyToManyField(Person, related_name='act_tv_subject_set', verbose_name='主演', blank=True)
+    directors = models.ManyToManyField(PersonSubject, related_name='direct_tv_subject_set', verbose_name='导演',
+                                       blank=True)
+    screenwriters = models.ManyToManyField(PersonSubject, related_name='write_tv_subject_set', verbose_name='编剧',
+                                           blank=True)
+    actors = models.ManyToManyField(PersonSubject, related_name='act_tv_subject_set', verbose_name='主演', blank=True)
     genres = models.ManyToManyField(TVGenre, verbose_name='类型', blank=False)
     official_site = models.URLField(max_length=255, verbose_name='官方网站', blank=True, null=False)
     countries = models.ManyToManyField(Country, verbose_name='制片国家/地区', blank=False)

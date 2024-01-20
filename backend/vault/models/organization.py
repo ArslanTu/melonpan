@@ -11,6 +11,6 @@
 from .abstract import Subject
 
 
-class Organization(Subject):
+class OrganizationSubject(Subject):
     class Meta:
         verbose_name = '组织'

@@ -11,5 +11,5 @@
 from .abstract import Subject
 
 
-class Person(Subject):  # IMPLEMENT
+class PersonSubject(Subject):  # IMPLEMENT
     pass
