@@ -11,6 +11,7 @@
 from django.db import models
 
 from .abstract import Subject, RateableSubject
+from .generic import Area, Language
 from .person import Person
 
 
@@ -24,34 +25,14 @@ class TVGenre(models.Model):
         return self.name
 
 
-class TVArea(models.Model):
-    name = models.CharField(primary_key=True, max_length=32, verbose_name='国家/地区名')
-
-    class Meta:
-        verbose_name = '电视剧制片国家/地区'
-
-    def __str__(self):
-        return self.name
-
-
-class TVLanguage(models.Model):
-    name = models.CharField(primary_key=True, max_length=32, verbose_name='语言名')
-
-    class Meta:
-        verbose_name = '电视剧语言'
-
-    def __str__(self):
-        return self.name
-
-
 class TVSubject(Subject, RateableSubject):
     directors = models.ManyToManyField(Person, verbose_name='导演', blank=True, null=True)
     screen_writers = models.ManyToManyField(Person, verbose_name='编剧', blank=True, null=True)
     actors = models.ManyToManyField(Person, verbose_name='主演', blank=True, null=True)
     genres = models.ManyToManyField(TVGenre, verbose_name='类型', blank=False, null=False)
     official_site = models.URLField(max_length=256, verbose_name='官方网站', blank=True, null=False)
-    country = models.ManyToManyField(TVArea, verbose_name='制片国家/地区', blank=False, null=False)
-    language = models.ManyToManyField(TVLanguage, verbose_name='语言', blank=False, null=False)
+    country = models.ManyToManyField(Area, verbose_name='制片国家/地区', blank=False, null=False)
+    language = models.ManyToManyField(Language, verbose_name='语言', blank=False, null=False)
     airing_date = models.DateField(verbose_name='首播时间', blank=True, null=True)
     number_of_episodes = models.PositiveIntegerField(verbose_name='集数', default=1, blank=False, null=False)
     number_of_seasons = models.PositiveIntegerField(verbose_name='季数', default=1, blank=False, null=False)
