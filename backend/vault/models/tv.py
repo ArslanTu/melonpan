@@ -16,7 +16,7 @@ from .person import Person
 
 
 class TVGenre(models.Model):
-    name = models.CharField(primary_key=True, max_length=32, verbose_name='类型名')
+    name = models.CharField(unique=True, max_length=32, verbose_name='类型名', blank=False, null=False)
 
     class Meta:
         verbose_name = "电视剧类型"
