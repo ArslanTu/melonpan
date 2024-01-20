@@ -17,6 +17,7 @@ from django.db import models
 class Subject(models.Model):
     title = models.CharField(max_length=256, verbose_name='条目标题')
     cover = models.ImageField(upload_to='images/covers/', verbose_name='封面图', blank=True, null=True)
+    is_sensitive = models.BooleanField(default=False, verbose_name='是否敏感')
 
     class Meta:
         abstract = True
