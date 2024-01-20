@@ -25,9 +25,9 @@ class MovieGenre(models.Model):
 
 
 class MovieSubject(Subject, RateableSubject):
-    directors = models.ManyToManyField(Person, verbose_name='导演', blank=True)
-    screenwriters = models.ManyToManyField(Person, verbose_name='编剧', blank=True)
-    actors = models.ManyToManyField(Person, verbose_name='主演', blank=True)
+    directors = models.ManyToManyField(Person, related_name='direct_movie_set', verbose_name='导演', blank=True)
+    screenwriters = models.ManyToManyField(Person, related_name='write_movie_set', verbose_name='编剧', blank=True)
+    actors = models.ManyToManyField(Person, related_name='act_movie_set', verbose_name='主演', blank=True)
     genres = models.ManyToManyField(MovieGenre, verbose_name='类型', blank=False)
     official_site = models.URLField(max_length=256, verbose_name='官方网站', blank=True, null=False)
     countries = models.ManyToManyField(Country, verbose_name='制片国家/地区', blank=False)
