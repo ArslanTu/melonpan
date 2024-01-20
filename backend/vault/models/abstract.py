@@ -14,6 +14,7 @@ from django.db import models
 class Subject(models.Model):
     """Base class for all subjects"""
     title = models.CharField(max_length=256, verbose_name='条目标题', blank=False, null=False)
+    intro = models.TextField(verbose_name='简介', blank=True, null=False)
     cover = models.ImageField(upload_to='images/covers/', verbose_name='封面图', blank=True, null=True)
     is_sensitive = models.BooleanField(default=False, verbose_name='是否敏感', blank=False, null=False)
 
