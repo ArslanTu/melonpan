@@ -9,6 +9,9 @@
 """
 from .abstract import Subject, RateableSubject
 from .book import BookSubject
-from .generic import Country, Language, Organization, Person
+from .country import Country
+from .language import Language
 from .movie import MovieGenre, MovieSubject
+from .organization import Organization
+from .person import Person
 from .tv import TVGenre, TVSubject
