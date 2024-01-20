@@ -7,7 +7,9 @@
 @Mail    : arslantu@arslantu
 
 """
+
 from .abstract import Subject, RateableSubject
+from .animation_tv import AnimationTVSubject
 from .book import BookSubject
 from .country import Country
 from .language import Language
