@@ -8,6 +8,7 @@
 
 """
 from .abstract import Subject, RateableSubject
+from .book import BookSubject
 from .generic import Country, Language, Press
 from .movie import MovieGenre, MovieSubject
 from .person import Person
