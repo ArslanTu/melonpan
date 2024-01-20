@@ -8,6 +8,6 @@
 
 """
 from .abstract import Subject, RateableSubject
-from .generic import Area, Language
+from .generic import Country, Language
 from .person import Person
 from .tv import TVGenre, TVSubject

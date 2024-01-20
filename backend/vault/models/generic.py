@@ -11,7 +11,7 @@
 from django.db import models
 
 
-class Area(models.Model):
+class Country(models.Model):
     name = models.CharField(primary_key=True, max_length=32, verbose_name='国家/地区名')
 
     class Meta:
