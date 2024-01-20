@@ -29,15 +29,15 @@ class RateableSubject(models.Model):
     """Base class for subjects that can be rated"""
     imdb_link = models.URLField(max_length=255, verbose_name='IMDb 链接', blank=True, null=False)
     imdb_rating = models.FloatField(verbose_name='IMDb 评分', blank=True, null=True)
-    imdb_rating_count = models.CommaSeparatedIntegerField(verbose_name='IMDb 评分人数', blank=True, null=True)
+    imdb_rating_count = models.PositiveSmallIntegerField(verbose_name='IMDb 评分人数', blank=True, null=False)
 
     douban_link = models.URLField(max_length=255, verbose_name='豆瓣链接', blank=True, null=False)
     douban_rating = models.FloatField(verbose_name='豆瓣评分', blank=True, null=True)
-    douban_rating_count = models.CommaSeparatedIntegerField(verbose_name='豆瓣评分人数', blank=True, null=True)
+    douban_rating_count = models.PositiveSmallIntegerField(verbose_name='豆瓣评分人数', blank=True, null=False)
 
     bangumi_link = models.URLField(max_length=255, verbose_name='Bangumi 链接', blank=True, null=False)
     bangumi_rating = models.FloatField(verbose_name='Bangumi 评分', blank=True, null=True)
-    bangumi_rating_count = models.CommaSeparatedIntegerField(verbose_name='Bangumi 评分人数', blank=True, null=True)
+    bangumi_rating_count = models.PositiveSmallIntegerField(verbose_name='Bangumi 评分人数', blank=True, null=False)
 
     class Meta:
         abstract = True

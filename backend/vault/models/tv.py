@@ -25,13 +25,13 @@ class TVGenre(models.Model):
 
 
 class TVSubject(Subject, RateableSubject):
-    directors = models.ManyToManyField(Person, verbose_name='导演', blank=True, null=True)
-    screenwriters = models.ManyToManyField(Person, verbose_name='编剧', blank=True, null=True)
-    actors = models.ManyToManyField(Person, verbose_name='主演', blank=True, null=True)
-    genres = models.ManyToManyField(TVGenre, verbose_name='类型', blank=False, null=False)
+    directors = models.ManyToManyField(Person, verbose_name='导演', blank=True)
+    screenwriters = models.ManyToManyField(Person, verbose_name='编剧', blank=True)
+    actors = models.ManyToManyField(Person, verbose_name='主演', blank=True)
+    genres = models.ManyToManyField(TVGenre, verbose_name='类型', blank=False)
     official_site = models.URLField(max_length=255, verbose_name='官方网站', blank=True, null=False)
-    countries = models.ManyToManyField(Country, verbose_name='制片国家/地区', blank=False, null=False)
-    languages = models.ManyToManyField(Language, verbose_name='语言', blank=False, null=False)
+    countries = models.ManyToManyField(Country, verbose_name='制片国家/地区', blank=False)
+    languages = models.ManyToManyField(Language, verbose_name='语言', blank=False)
     airing_date = models.DateField(verbose_name='首播时间', blank=True, null=True)
     number_of_episodes = models.PositiveSmallIntegerField(verbose_name='集数', default=1, blank=False, null=False)
     number_of_seasons = models.PositiveSmallIntegerField(verbose_name='季数', default=1, blank=False, null=False)
