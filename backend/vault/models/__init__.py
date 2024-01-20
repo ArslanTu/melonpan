@@ -11,6 +11,7 @@
 from .abstract import Subject, RateableSubject
 from .animation_tv import AnimationTVSubject
 from .book import BookSubject
+from .character import CharacterSubject
 from .country import Country
 from .language import Language
 from .movie import MovieGenre, MovieSubject
