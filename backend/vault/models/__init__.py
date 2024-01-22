@@ -14,6 +14,7 @@ from .book import BookSubject
 from .character import CharacterSubject
 from .comic import ComicSubject, ComicSeriesSubject
 from .country import Country
+from .game import GameGenre, GameSubject
 from .language import Language
 from .movie import MovieGenre, MovieSubject
 from .novel import NovelSubject, NovelSeriesSubject
