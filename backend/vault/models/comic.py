@@ -19,8 +19,9 @@ class ComicSubject(Subject, RateableSubject):
     chinese_title = models.CharField(max_length=255, verbose_name='中文名', blank=True, null=False)
     number_of_episode = models.PositiveIntegerField(verbose_name='话数', default=1, blank=True, null=True)
     authors = models.ManyToManyField(PersonSubject, verbose_name='作者', blank=True)
-    press = models.ManyToManyField(OrganizationSubject, related_name='publish_comic', verbose_name='出版社', blank=True)
-    magazines = models.ManyToManyField(OrganizationSubject, related_name='serialize_comic', verbose_name='连载杂志',
+    press = models.ManyToManyField(OrganizationSubject, related_name='publish_comic_set', verbose_name='出版社',
+                                   blank=True)
+    magazines = models.ManyToManyField(OrganizationSubject, related_name='serialize_comic_set', verbose_name='连载杂志',
                                        blank=True)
     alternative_names = models.CharField(max_length=255, verbose_name='别名', blank=True)
     release_date = models.DateField(verbose_name='发售日', blank=True, null=True)
@@ -35,9 +36,9 @@ class ComicSeriesSubject(Subject, RateableSubject):
     number_of_episode = models.PositiveIntegerField(verbose_name='话数', default=1, blank=True, null=True)
     number_of_volumes = models.PositiveIntegerField(verbose_name='册数', default=1, blank=True, null=True)
     authors = models.ManyToManyField(PersonSubject, verbose_name='作者', blank=True)
-    press = models.ManyToManyField(OrganizationSubject, related_name='publish_comic_series', verbose_name='出版社',
+    press = models.ManyToManyField(OrganizationSubject, related_name='publish_comic_series_set', verbose_name='出版社',
                                    blank=True)
-    magazines = models.ManyToManyField(OrganizationSubject, related_name='serialize_comic_series',
+    magazines = models.ManyToManyField(OrganizationSubject, related_name='serialize_comic_series_set',
                                        verbose_name='连载杂志',
                                        blank=True)
     alternative_names = models.CharField(max_length=255, verbose_name='别名', blank=True)
