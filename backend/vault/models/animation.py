@@ -19,14 +19,14 @@ class AnimationSubject(Subject, RateableSubject):
     number_of_episodes = models.PositiveSmallIntegerField(verbose_name='话数', default=1, blank=False, null=False)
     airing_date = models.DateField(verbose_name='放送开始', blank=True, null=True)
     release_date = models.DateField(verbose_name='上映年度', blank=True, null=True)
-    original_author = models.ManyToManyField(PersonSubject, related_name='original_work_animation_tv_set',
-                                             verbose_name='原作者', blank=True)
-    director = models.ManyToManyField(PersonSubject, related_name='direct_animation_tv_set', verbose_name='导演',
-                                      blank=True)
-    screenwriter = models.ManyToManyField(PersonSubject, related_name='write_animation_tv_set', verbose_name='脚本',
-                                          blank=True)
-    music_director = models.ManyToManyField(PersonSubject, related_name='direct_music_of_animation_tv_set',
-                                            verbose_name='音乐', blank=True)
+    original_authors = models.ManyToManyField(PersonSubject, related_name='original_work_animation_tv_set',
+                                              verbose_name='原作者', blank=True)
+    directors = models.ManyToManyField(PersonSubject, related_name='direct_animation_tv_set', verbose_name='导演',
+                                       blank=True)
+    screenwriters = models.ManyToManyField(PersonSubject, related_name='write_animation_tv_set', verbose_name='脚本',
+                                           blank=True)
+    music_directors = models.ManyToManyField(PersonSubject, related_name='direct_music_of_animation_tv_set',
+                                             verbose_name='音乐', blank=True)
     op_singers = models.ManyToManyField(PersonSubject, related_name='sing_op_of_animation_tv_set',
                                         verbose_name='主题歌演出',
                                         blank=True)

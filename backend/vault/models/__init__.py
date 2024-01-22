@@ -12,6 +12,7 @@ from .abstract import Subject, RateableSubject
 from .animation import AnimationSubject
 from .book import BookSubject
 from .character import CharacterSubject
+from .comic import ComicSubject, ComicSeriesSubject
 from .country import Country
 from .language import Language
 from .movie import MovieGenre, MovieSubject
