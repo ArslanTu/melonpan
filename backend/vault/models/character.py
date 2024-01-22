@@ -11,7 +11,7 @@
 from django.db import models
 
 from .abstract import Subject
-from .animation_tv import AnimationTVSubject
+from .animation import AnimationSubject
 from .movie import MovieSubject
 from .person import PersonSubject
 from .tv import TVSubject
@@ -20,7 +20,7 @@ from .tv import TVSubject
 class CharacterSubject(Subject):
     tvs = models.ManyToManyField(TVSubject, verbose_name='电视剧', blank=True)
     movies = models.ManyToManyField(MovieSubject, verbose_name='电影', blank=True)
-    animation_tvs = models.ManyToManyField(AnimationTVSubject, verbose_name='动画番组', blank=True)
+    animations = models.ManyToManyField(AnimationSubject, verbose_name='动画', blank=True)
 
     actors = models.ManyToManyField(PersonSubject, verbose_name='演员', blank=True)
 

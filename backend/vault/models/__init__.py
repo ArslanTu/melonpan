@@ -9,7 +9,7 @@
 """
 
 from .abstract import Subject, RateableSubject
-from .animation_tv import AnimationTVSubject
+from .animation import AnimationSubject
 from .book import BookSubject
 from .character import CharacterSubject
 from .country import Country
