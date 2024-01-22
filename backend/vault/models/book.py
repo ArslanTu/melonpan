@@ -17,8 +17,7 @@ from .person import PersonSubject
 
 class BookSubject(Subject, RateableSubject):
     authors = models.ManyToManyField(PersonSubject, related_name='write_book_set', verbose_name='作者', blank=False)
-    press = models.ForeignKey(OrganizationSubject, on_delete=models.SET_NULL, verbose_name='出版社', blank=True,
-                              null=True)
+    presses = models.ManyToManyField(OrganizationSubject, verbose_name='出版社', blank=True)
     original_title = models.CharField(max_length=255, verbose_name='原作名', blank=True, null=False)
     translators = models.ManyToManyField(PersonSubject, related_name='translate_book_set', verbose_name='译者',
                                          blank=True)
